@@ -1,0 +1,15 @@
+@(source: String, images: List[String])
+
+@if(images!=null){
+<h1>TASK 3</h1>
+<ul>
+@for(image <- images) {
+  <img src=@image width="500" height="500">
+}
+</ul> 
+}
+@if(source!=null){
+ <h1>TASK 2</h1>
+  
+  <img #imgID src=@source width="500" height="500">
+}

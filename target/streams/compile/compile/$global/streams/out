@@ -1,0 +1,7 @@
+[0m[[0m[31merror[0m] [0m[0mC:\dlp-test\conf\routes:14:1: value randomService is not a member of controllers.HomeController[0m
+[0m[[0m[31merror[0m] [0m[0mGET     /test                   controllers.HomeController.randomService[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dlp-test\conf\routes:15:1: value randomService is not a member of controllers.HomeController[0m
+[0m[[0m[31merror[0m] [0m[0mGET     /testMultiple           controllers.HomeController.randomService[0m
+[0m[[0m[31merror[0m] [0m[0mC:\dlp-test\conf\routes:16:1: value randomService is not a member of controllers.HomeController[0m
+[0m[[0m[31merror[0m] [0m[0mGET     /randomService          controllers.HomeController.randomService[0m
+[0m[[0m[31merror[0m] [0m[0mthree errors found[0m

@@ -1,0 +1,23 @@
+2019-10-21 18:43:27,064 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-3 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.csrf.CSRFFilter
+    play.filters.cors.CORSFilter
+    play.filters.headers.SecurityHeadersFilter
+
+2019-10-21 18:43:27,127 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-3 - Application started (Dev)
+2019-10-21 18:43:27,394 [INFO] from play in application-akka.actor.default-dispatcher-5 - https://picsum.photos/id/567/200/300
+2019-10-21 18:46:41,318 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-13 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.csrf.CSRFFilter
+    play.filters.cors.CORSFilter
+    play.filters.headers.SecurityHeadersFilter
+
+2019-10-21 18:46:41,332 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-13 - Application started (Dev)
+2019-10-21 18:46:41,363 [INFO] from play in application-akka.actor.default-dispatcher-3 - https://picsum.photos/id/1064/200/300
+2019-10-21 18:46:41,571 [INFO] from play in ForkJoinPool.commonPool-worker-2 - https://picsum.photos/id/1064/200/300
+2019-10-21 18:46:41,668 [WARN] from akka.actor.ActorSystemImpl in play-dev-mode-akka.actor.default-dispatcher-12 - Illegal request, responding with status '400 Bad Request': Illegal request-target: Invalid input '[', expected pchar, '/', '?' or 'EOI' (line 1, column 49): /java.util.concurrent.CompletableFuture@205f1b91[Not
+                                                ^
