@@ -19,6 +19,8 @@ public class ContentAPIService {
 	private static final String IMAGE_URL = "image.url";
 	private static final String IMAGE_URL_SUFFIX = "/200/300";
 	private static final String IMAGES_URL_SUFFIX = "/v2/list";
+
+	private static final String RANDOM_IMAGE_CACHE = "randomImg.cache";
 	private Logger logger = Logger.getLogger("play");
 	
 	
@@ -38,10 +40,10 @@ public class ContentAPIService {
 	 */
 	public CompletionStage<WSResponse> getURLImage(SyncCacheApi cache, Config config) {
 		int id = AppUtils.getRandomId();
-        if (cache.get("imgUrl") == null) {
-            cache.set("imgUrl", id, config.getInt("randomImg.cache"));
+        if (cache.get(IMAGE_URL) == null) {
+            cache.set(IMAGE_URL, id, config.getInt(RANDOM_IMAGE_CACHE));
         } else {
-            id = (cache.get("imgUrl"));
+            id = (cache.get(IMAGE_URL));
         }
         logger.info(this.config.getString(IMAGE_URL)+"id/"+id +IMAGE_URL_SUFFIX);
 		return this.wsClient.url(this.config.getString(IMAGE_URL)+"id/" +id +IMAGE_URL_SUFFIX).get();

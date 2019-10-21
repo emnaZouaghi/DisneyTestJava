@@ -1,7 +1,5 @@
 package controllers;
 
-import java.time.Duration;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -18,9 +16,6 @@ import java.util.logging.*;
 
 import play.cache.NamedCache;
 import play.cache.SyncCacheApi;
-import play.libs.ws.WSClient;
-import play.libs.ws.WSRequest;
-import play.libs.ws.WSResponse;
 import play.mvc.Controller;
 import play.mvc.Result;
 import services.ContentAPIService;
@@ -34,14 +29,11 @@ public class HomeController extends Controller {
 
 	private Logger logger = Logger.getLogger("play");
 	private static final String IMAGE_URL = "image.url";
-	private static final String IMAGE_CACHE_KEY = "ImageId";
-	private static final String IMAGE_CACHE_TTL = "image.cache.ttl";
-	private static final String RANDOM_IMAGE_CACHE="randomImg.cache";
-
+	private static final String RANDOM_IMAGE_CACHE = "randomImg.cache";
 	private static final String IMAGE_URL_SUFFIX = "/200/300";
 
 	private final Config conf;
-	 @NamedCache("session-cache")
+	@NamedCache("session-cache")
 	private final SyncCacheApi cache;
 
 	private JsonNode imagesAsJson;
@@ -71,18 +63,19 @@ public class HomeController extends Controller {
 	 */
 	public CompletionStage<Result> test() {
 		id = AppUtils.getRandomId();
-        if (cache.get("imgUrl") == null) {
-            cache.set("imgUrl", id, conf.getInt(RANDOM_IMAGE_CACHE));
-        } else {
-            id = (cache.get("imgUrl"));
-        }
-        logger.info(this.conf.getString(IMAGE_URL)+"id/"+id +IMAGE_URL_SUFFIX);
-	
-		return this.wsClient.getURLImage(cache,conf)
+		if (cache.get("imgUrl") == null) {
+			cache.set("imgUrl", id, conf.getInt(RANDOM_IMAGE_CACHE));
+		} else {
+			id = (cache.get("imgUrl"));
+		}
+		logger.info(this.conf.getString(IMAGE_URL) + "id/" + id + IMAGE_URL_SUFFIX);
+
+		return this.wsClient.getURLImage(cache, conf)
 
 				.thenApply(file -> {
-				
-					return ok(views.html.images.render(this.conf.getString(IMAGE_URL)+"id/"+id +IMAGE_URL_SUFFIX,null));
+
+					return ok(views.html.images.render(this.conf.getString(IMAGE_URL) + "id/" + id + IMAGE_URL_SUFFIX,
+							null));
 				});
 	}
 
@@ -105,7 +98,7 @@ public class HomeController extends Controller {
 				e.printStackTrace();
 			}
 			// render HTML
-			return ok(views.html.images.render(null,this.listUrl));
+			return ok(views.html.images.render(null, this.listUrl));
 		});
 
 	}
